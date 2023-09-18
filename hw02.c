@@ -8,8 +8,8 @@
 int main()
 {
     // Variable declarations
-    double startingCurrency;  // Starting currency (1-USD, 2-CAD)
-    double startingUnit;      // Starting unit (1-g, 2-l, 3-b)
+    int startingCurrency;  // Starting currency (1-USD, 2-CAD)
+    int startingUnit;      // Starting unit (1-g, 2-l, 3-b)
     double price;             // Entered price
     double pricePerGallonUSD; // Price per gallon in USD
     double pricePerGallonCAD; // Price per gallon in CAD
