@@ -17,6 +17,14 @@ int main()
     double pricePerLiterCAD;  // Price per liter in CAD
     double pricePerBarrelUSD; // Price per barrel in USD
     double pricePerBarrelCAD; // Price per barrel in CAD
+    int currencyUSDIndicator;
+    int currencyCADIndicator;
+    int unitGallonIndicator;
+    int unitLiterIndicator;
+    int unitBarrelIndicator;
+    int currencyFirstLetter;
+    int currencySecondLetter;
+    int unitSymbol;
 
     printf("Enter starting currency (1-USD, 2-CAD) -> ");
     scanf("%d", &startingCurrency);
@@ -26,18 +34,18 @@ int main()
 
     // Calculate the 1 or 0 indicators for currency and unit
     // without using relational or logical operators
-    int currencyUSDIndicator = 1 - (startingCurrency - 1); // 1 for 1;  0 for 2
-    int currencyCADIndicator = (startingCurrency - 1);     // 1 for 2;  0 for 1
+    currencyUSDIndicator = 1 - (startingCurrency - 1); // 1 for 1;  0 for 2
+    currencyCADIndicator = (startingCurrency - 1);     // 1 for 2;  0 for 1
 
-    int unitGallonIndicator = ((startingUnit - 2) * (startingUnit - 3)) / 2;
-    int unitLiterIndicator = ((startingUnit - 1) * (startingUnit - 3)) / (-1);
-    int unitBarrelIndicator = ((startingUnit - 1) * (startingUnit - 2)) / 2;
+    unitGallonIndicator = ((startingUnit - 2) * (startingUnit - 3)) / 2;   // 1 for 1; 0 for 2 and 3
+    unitLiterIndicator = ((startingUnit - 1) * (startingUnit - 3)) / (-1); // 1 for 2; 0 for 1 and 3
+    unitBarrelIndicator = ((startingUnit - 1) * (startingUnit - 2)) / 2;   // 1 for 3; 0 for 1 and 2
 
     // Selection by calculation for currency and unit symbols
-    char currencyFirstLetter = 'U' * currencyUSDIndicator + 'C' * currencyCADIndicator;
-    char currencySecondLetter = 'S' * currencyUSDIndicator + 'A' * currencyCADIndicator;
+    currencyFirstLetter = 'U' * currencyUSDIndicator + 'C' * currencyCADIndicator;
+    currencySecondLetter = 'S' * currencyUSDIndicator + 'A' * currencyCADIndicator;
 
-    char unitSymbol = 'g' * unitGallonIndicator + 'l' * unitLiterIndicator + 'b' * unitBarrelIndicator;
+    unitSymbol = 'g' * unitGallonIndicator + 'l' * unitLiterIndicator + 'b' * unitBarrelIndicator;
 
     printf("Enter current price per %c (%c%cD) -> ", unitSymbol, currencyFirstLetter, currencySecondLetter);
     scanf("%lf", &price);
